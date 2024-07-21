@@ -4,7 +4,7 @@ describe('E-commerce should login to Amazon and verify user is signed in', () =>
   beforeEach(() => {
     cy.viewport(1500, 900);
     cy.login();
-    // cy.verifySignIn('Hello, Sai');
+    cy.verifySignIn('Hello, Sai');
     
   });
 
