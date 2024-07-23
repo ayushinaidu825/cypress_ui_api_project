@@ -8,18 +8,32 @@ export const eCommercePaths = {
     loginSubmit: '#signInSubmit',
   },
 
+  navBar:{
+    verifyAccountName: '#nav-link-accountList-nav-line-1',
+    hoverOnAccount:'span.nav-line-2' ,
+  },
+  search:{
+    searchInput: '#twotabsearchtextbox',
+    searchSubmit: '#nav-search-submit-button',
+    addToCartButton: 'Add to cart',
+    itemAddedConfirmation: 'Item Added',
+    productImageVerification: '.ewc-item-content > .a-row > .a-link-normal > .sc-product-image',
+  },
+  
+  addToCart:{
+    cartLink: '//*[@id="nav-cart"]',
+    goToCartButton: 'Go to Cart',
+    shoppingCartHeader: 'Shopping Cart', 
+  },
+  checkOut:{
+    proceedToCheckoutButton: 'input[name="proceedToRetailCheckout"]',
+    deliveryAddressHeader: 'Select a delivery address', 
+    signOutButton: '#nav-item-signout > .nav-text',
+  },
   other:{
-    verifyAccountName: '//span[@id="nav-link-accountList-nav-line-1"]',
-    searchInput: '//input[@id="twotabsearchtextbox"]',
-    searchSubmit: '//input[@id="nav-search-submit-button"]',
-    productItem: '//span[@class="a-size-medium a-color-base a-text-normal"]',
-    addToCartButton: '//input[@id="add-to-cart-button"]',
-    cartLink: '//a[@id="nav-cart"]',
-    cartItem: '//span[@class="a-size-medium sc-product-title a-text-bold"]',
-    proceedToCheckoutButton: '//input[@name="proceedToRetailCheckout"]',
-    signOutButton: '//span[text()="Sign Out"]',
+    deleteProduct:'input[title="Delete"]',
   }
-    
+
   };
   
   
