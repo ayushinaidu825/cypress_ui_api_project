@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test:api": "cypress run --spec cypress/e2e/api_testcase/github_Integration.cy.js",
+    "test:ui": "cypress run --spec cypress/e2e/ui_testcase/eCommerceTest.cy.js",
+    "html-report": "cypress run --spec cypress/e2e/ui_testcase/eCommerceTest.cy.js --browser chrome --headed",
+    "merge-reports": "mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json",
+    "generate-report": "marge cypress/reports/merged-report.json -o cypress/reports"
   },
   "repository": {
     "type": "git",
@@ -20,6 +27,7 @@
     "@cypress/skip-test": "^2.6.1",
     "@cypress/xpath": "^2.0.3",
     "cypress": "^13.13.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-xpath": "^2.0.1",
     "dotenv": "^16.4.5"
   },

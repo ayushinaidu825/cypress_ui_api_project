@@ -48,15 +48,17 @@ Cypress.Commands.add("proceedToCheckout", () => {
     "Select a delivery address"
   );
   cy.go("back");
-  cy.go("back");
+  cy.go("back").wait(1000);
 });
 
+// Deleting added products 
 Cypress.Commands.add("deleteRightPanel", () => {
   cy.get(eCommercePaths.other.deleteProduct).each(($el) => {
     cy.wrap($el).click();
   });
 });
 
+// To complete flow signout
 Cypress.Commands.add("signOut", () => {
   cy.contains(eCommercePaths.navBar.hoverOnAccount, "Account & Lists").trigger(
     "mouseover"
