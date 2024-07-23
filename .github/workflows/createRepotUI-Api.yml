@@ -5,36 +5,27 @@ on:
       - 'master'
 
 jobs:
-  cypress-test:
-    name: Run on Chrome 83
-    runs-on: ubuntu-18.04
-    container: cypress/browsers:node-20.15.1-chrome-126.0.6478.126-1-ff-128.0-edge-126.0.2592.102-1
+  cypress-run:
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Install cypress and verify
-        run: |
-          npm ci
-          $(npm bin)/cypress verify
-
-      - name: Run cypress tests
-        run: npm run test:chrome
-        continue-on-error: false
-
-      - name: Copy test execution videos and screenshots
-        run: |
-          mkdir public
-          cp -r cypress/videos public/videos
-          cp -r cypress/screenshots public/screenshots
-
-      - name: Merge test reports
-        run: npm run combine:report
-
-      - name: Generate HTML report
-        run: npm run generate:report
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+           command: npx cypress run
+      - name : Uploding artifact
+        uses : actions/upload-artifact@v2
+        if: always()
+        with :
+          name: cypress-execution-report
+          path : cypress\reports\html
+          retention-days: 30
+      
+# - name: Deploy
+#   uses: peaceiris/actions-gh-pages@v4
+#   with:
+#     github_token: ${{ secrets.GITHUB_TOKEN }}
+#     publish_dir: ./public

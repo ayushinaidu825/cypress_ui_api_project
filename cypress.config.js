@@ -8,6 +8,11 @@ module.exports = defineConfig({
     embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: false,
+    reportFilename: "[status]_[datetime]-[name]-report",
+    code:"false",
+    autoOpen:"true",
+    overwrite:"false"
+
   },
   e2e: {
     setupNodeEvents(on, config) {
@@ -19,7 +24,7 @@ module.exports = defineConfig({
   },
   env: {
     GITHUB_USER: 'ayushinaidu825',
-    GITHUB_TOKEN: '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'
+    GITHUB_TOKEN: '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'
   },
   "watchForFileChanges": false
 
