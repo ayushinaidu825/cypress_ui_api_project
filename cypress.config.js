@@ -11,7 +11,7 @@ module.exports = defineConfig({
   },
   env: {
     GITHUB_USER: 'ayushinaidu825',
-    GITHUB_TOKEN: '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'
+    GITHUB_TOKEN: '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'
   },
   "watchForFileChanges": false
 
