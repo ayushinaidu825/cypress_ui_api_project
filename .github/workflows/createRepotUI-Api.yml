@@ -1,0 +1,40 @@
+name: Generate Cypress Report
+on: 
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  cypress-test:
+    name: Run on Chrome 83
+    runs-on: ubuntu-18.04
+    container: cypress/browsers:node-20.15.1-chrome-126.0.6478.126-1-ff-128.0-edge-126.0.2592.102-1
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install cypress and verify
+        run: |
+          npm ci
+          $(npm bin)/cypress verify
+
+      - name: Run cypress tests
+        run: npm run test:chrome
+        continue-on-error: false
+
+      - name: Copy test execution videos and screenshots
+        run: |
+          mkdir public
+          cp -r cypress/videos public/videos
+          cp -r cypress/screenshots public/screenshots
+
+      - name: Merge test reports
+        run: npm run combine:report
+
+      - name: Generate HTML report
+        run: npm run generate:report
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
