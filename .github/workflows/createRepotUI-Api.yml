@@ -17,7 +17,7 @@ jobs:
         with:
            command: npx cypress run
       - name : Uploding artifact
-        uses : actions/upload-artifact@v2
+        uses : actions/upload-artifact@v4
         if: always()
         with :
           name: cypress-execution-report
