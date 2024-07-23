@@ -17,7 +17,7 @@ Cypress.Commands.add("apiPost", (endpoint, body, headers = {}) => {
     url: `${apiBaseUrl}${endpoint}`,
     body,
     headers,
-    //failOnStatusCode: false,
+    failOnStatusCode: false,
   }).then((response) => {
     return response;
   });

@@ -2,7 +2,7 @@
 export const eCommercePaths = {
   loginPage: {
     loginsignInButton: '.nav-action-inner',
-    loginEmail: '#ap_email_login',
+    loginEmail: 'input[name="email"]',
     continueButton :'.a-button-input',
     loginPassword: '#ap_password',
     loginSubmit: '#signInSubmit',
