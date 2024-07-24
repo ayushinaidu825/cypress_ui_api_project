@@ -1,0 +1,16 @@
+{
+    "email": "ayushinaidu25@gmail.com",
+    "password": "@Testing123",
+    "categories": [
+      {
+        "firstname": "Ayushi",
+        "lastname": "Naidu",
+        "company": "shell",
+        "streetAddress": "HSR ventures",
+        "city": "Hyderabad",
+        "pincode": "500070",
+        "phoneNumber": "8770012477"
+      }
+    ]
+  }
+  

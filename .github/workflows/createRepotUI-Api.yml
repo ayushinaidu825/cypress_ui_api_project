@@ -17,12 +17,24 @@ jobs:
         with:
            command: npx cypress run
       - name : Uploding artifact
-        uses : actions/upload-artifact@v4
+        uses : actions/upload-artifact@v3
         if: always()
         with :
           name: cypress-execution-report
           path : cypress\reports\html
           retention-days: 30
+          
+        uses : actions/upload-artifact@v3
+        if: faliure()
+        with:
+          name: cypress-screenshots
+          path: cypress/reports/screenshots
+
+        uses : actions/upload-artifact@v3
+        if: faliure()
+        with:
+          name: cypress-videos
+          path: cypress/reports/videos
       
 # - name: Deploy
 #   uses: peaceiris/actions-gh-pages@v4

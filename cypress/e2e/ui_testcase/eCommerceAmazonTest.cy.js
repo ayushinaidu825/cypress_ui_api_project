@@ -4,7 +4,7 @@ import { eCommercePaths } from "../../configs/xpaths/eCommercePaths";
 describe("E-commerce should login to Amazon and verify user is signed in", () => {
   before(() => {
     cy.viewport(1500, 900);
-    cy.login();
+    cy.amazonlogin();
     cy.verifySignIn("Hello, sai");
   });
 

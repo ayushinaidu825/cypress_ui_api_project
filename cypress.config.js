@@ -18,9 +18,11 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
     },
-    baseUrl: 'https://www.amazon.in',
+    AmazonbaseUrl: 'https://www.amazon.in',
     specPattern: 'cypress/e2e/**/*.cy.js',
     apiBaseUrl:'https://api.github.com',
+    MagentoBaseUrl: 'https://magento.softwaretestingboard.com'
+
   },
   env: {
     GITHUB_USER: 'ayushinaidu825',
