@@ -1,5 +1,5 @@
 name: Generate Cypress Report
-on: 
+on:
   push:
     branches:
       - 'master'
@@ -10,28 +10,30 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
+      
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-           command: npx cypress run
-      - name : Uploding artifact
-        uses : actions/upload-artifact@v3
+          command: npx cypress run
+      
+      - name: Upload Cypress Execution Report
+        uses: actions/upload-artifact@v3
         if: always()
-        with :
+        with:
           name: cypress-execution-report
-          path : cypress\reports\html
+          path: cypress/reports/html
           retention-days: 30
-          
-        uses : actions/upload-artifact@v3
-        if: faliure()
+
+      - name: Upload Cypress Screenshots
+        uses: actions/upload-artifact@v3
+        if: failure()
         with:
           name: cypress-screenshots
           path: cypress/reports/screenshots
 
-        uses : actions/upload-artifact@v3
-        if: faliure()
+      - name: Upload Cypress Videos
+        uses: actions/upload-artifact@v3
+        if: failure()
         with:
           name: cypress-videos
           path: cypress/reports/videos
