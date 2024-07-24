@@ -7,7 +7,8 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "test:api": "cypress run --spec cypress/e2e/api_testcase/github_Integration.cy.js",
-    "test:ui": "cypress run --spec cypress/e2e/ui_testcase/eCommerceTest.cy.js",
+    "test:ui": "cypress run --spec cypress/e2e/ui_testcase/eCommerceAmazonTest.cy.js",
+    "test:ui:magneto": "cypress run --spec cypress/e2e/ui_testcase/magentoTest.cy.js",
     "html-report": "cypress run --spec cypress/e2e/ui_testcase/eCommerceTest.cy.js --browser chrome --headed",
     "merge-reports": "mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json",
     "generate-report": "marge cypress/reports/merged-report.json -o cypress/reports"
