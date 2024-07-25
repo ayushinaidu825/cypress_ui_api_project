@@ -163,8 +163,8 @@ Cypress.Commands.add("checkoutToCart", () => {
   cy.get(eCommercePaths.magento.shippingPhoneNumber).clear().type(magneto.categories[0].phoneNumber);
   cy.get(eCommercePaths.magento.shiphere).click();
   */
-  cy.get(eCommercePaths.magento.shippingNext).click();
-  cy.get(eCommercePaths.magento.placeOrder).click();
+  cy.get(eCommercePaths.magento.shippingNext).click().wait(2000);
+  cy.get(eCommercePaths.magento.placeOrder).click().wait(3000);
   cy.get(eCommercePaths.magento.OrderCompleted).should('have.text','Thank you for your purchase!')
 
 });
